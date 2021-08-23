@@ -1,4 +1,5 @@
 from django.contrib import admin
+from django import import_export
 from import_export.admin import ImportExportActionModelAdmin
 
 # Register your models here.
