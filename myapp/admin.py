@@ -1,11 +1,11 @@
 from django.contrib import admin
-from django import import_export
+#from django import import_export
 from import_export.admin import ImportExportActionModelAdmin
 
 # Register your models here.
 
 from .models import Data
-#admin.site.register(Data)
+# admin.site.register(Data)
 
 @admin.register(Data)
 class ViewAdmin(ImportExportActionModelAdmin):
