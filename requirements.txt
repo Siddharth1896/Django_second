@@ -48,8 +48,6 @@ resources==0.0.1
 setuptools==57.1.0
 six==1.16.0
 sortedcontainers==2.4.0
-SQLAlchemy==0.7.10
-sqlalchemy-migrate==0.11.0
 sqlparse==0.4.1
 staty==1.2.4
 tablib==3.0.0
