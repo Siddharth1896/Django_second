@@ -1,6 +1,7 @@
 from django.urls import path
 
 from . import views
+from myapp.views import BootstrapFilterView
 
 # urlpatterns = [
 #     path('', views.Index, name='index')
