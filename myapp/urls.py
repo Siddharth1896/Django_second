@@ -10,6 +10,7 @@ from . import views
 app_name = "myapp"
 
 urlpatterns = [
+    path('filter', BootstrapFilterView, name='bootstrap'),
     ####
     path('index', views.index, name='index'),
     path('number', views.number, name='number'),
