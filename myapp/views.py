@@ -27,6 +27,48 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 
+### BOOTSTRAP FILTER VIEW
+
+def is_valid_queryparam(param):
+    return param != '' and param is not None
+
+def BootstrapFilterView(request):
+    qs = Data.objects.all()
+    countries = Data.objects.filter().values_list('Country', flat=True).distinct()
+
+    License_name_contains_query = request.GET.get('License_name_contains')
+    Part_number_exact_query = request.GET.get('Part_number_exact')
+    Process_number_exact_query = request.GET.get('Process_number_exact')
+    date_min = request.GET.get('date_min')
+    date_max = request.GET.get('date_max')
+    country = request.GET.get('country')
+    print(country)
+
+    if is_valid_queryparam(License_name_contains_query):
+        qs = qs.filter(License_name__icontains=License_name_contains_query)
+
+    if is_valid_queryparam(Part_number_exact_query):
+        qs = qs.filter(Part_number__iexact=Part_number_exact_query)
+
+    if is_valid_queryparam(Process_number_exact_query):
+        qs = qs.filter(Process_number__iexact=Process_number_exact_query)
+
+    if is_valid_queryparam(date_min):
+        qs = qs.filter(Date_of_entry__gte=date_min)
+
+    if is_valid_queryparam(date_max):
+        qs = qs.filter(Date_of_entry__lt=date_max)
+
+    if is_valid_queryparam(country) and country != 'Choose...':
+        qs = qs.filter(Country__icontains=country)
+
+    context = {
+        'queryset': qs,
+        'countries': countries,
+    }
+    
+    return render(request, "bootstrap_form.html", context)
+
 
 #### LOGIN & REGISTER LOGIC:
 
