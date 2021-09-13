@@ -27,7 +27,7 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 
-### BOOTSTRAP FILTER VIEW
+### BOOTSTRAP FILTER VIEW ###
 
 def is_valid_queryparam(param):
     return param != '' and param is not None
