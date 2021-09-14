@@ -120,11 +120,49 @@
           </div>
         </div> -->
         <button type="submit" class="btn btn-primary">Search</button>
+        <button onclick="window.location.reload();" class="btn btn-primary">Refresh</button>
       </form>
 
       <hr />
+      
+      <table border = "2" cellpadding="5" cellspacing="5">
+        <td>Date of Entry</td>
+        <td>Country</td>
+        <td>Vendor</td>
+        <td>Part Number</td>
+        <td>License Name</td>
+        <td>Metric</td>
+        <td>Currency</td>
+        <td>Process Number</td>
+        <td>Global Listprice USD</td>
+        <td>Discount from Pricelist</td>
+        <td>Final Price USD</td>
+        <td>Finalprice of Localcurrency</td>
+        <td>Awarded</td>
+        <td>Quantity</td>
+        <td>Volume of Deal</td>
+        {% for i in queryset %}
+          <tr>
+            <td>{{i.Date_of_entry}}</td>
+            <td>{{i.Country}}</td>
+            <td>{{i.Vendor}}</td>
+            <td>{{i.Part_number}}</td>
+            <td>{{i.License_name}}</td>
+            <td>{{i.Metric}}</td>
+            <td>{{i.Currency}}</td>
+            <td>{{i.Process_number}}</td>
+            <td>{{i.GLobal_price_listprice_USD}}</td>
+            <td>{{i.Discount_from_pricelist}}</td>
+            <td>{{i.Final_price_USD}}</td>
+            <td>{{i.Finalprice_of_Localcurrency}}</td>
+            <td>{{i.Awarded}}</td>
+            <td>{{i.Quantity}}</td>
+            <td>{{i.Volume_of_Deal}}</td>
+          </tr>
+        {% endfor %}
+      </table>
 
-      <div class="row">
+      <!-- <div class="row">
         <ul>
           {% for data in queryset %}
             <li>
@@ -133,19 +171,19 @@
               <span>Vendor Name: {{ data.Vendor }}</span>
               <span>Part Number: {{ data.Part_number }}</span>
               <span>Process Number: {{ data.Process_number }}</span>
-              <!-- <span>
+              <span>
                 {% for cat in journal.categories.all %}
                   {{ cat }}
                 {% endfor %}
-              </span> -->
+              </span>
               <span>Date of Entry: {{ data.Date_of_entry }}</span>
-              <!-- <span>View count: {{ journal.views }}</span>
-              <span>Reviewed: {{ journal.reviewed }}</span> -->
+              <span>View count: {{ journal.views }}</span>
+              <span>Reviewed: {{ journal.reviewed }}</span>
             </li>
             <hr />
           {% endfor %}
         </ul>
-      </div>
+      </div> -->
 
     </main>
 
