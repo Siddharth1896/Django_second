@@ -42,7 +42,7 @@ def BootstrapFilterView(request):
     date_min = request.GET.get('date_min')
     date_max = request.GET.get('date_max')
     country = request.GET.get('country')
-    print(country)
+    Vendor_contains_query = request.GET.get('Vendor_contains')
 
     if is_valid_queryparam(License_name_contains_query):
         qs = qs.filter(License_name__icontains=License_name_contains_query)
@@ -61,6 +61,9 @@ def BootstrapFilterView(request):
 
     if is_valid_queryparam(country) and country != 'Choose...':
         qs = qs.filter(Country__icontains=country)
+    
+    if is_valid_queryparam(Vendor_contains_query):
+        qs = qs.filter(Vendor__icontains=Vendor_contains_query)
 
     context = {
         'queryset': qs,
