@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_admin_listfilter_dropdown',
-    'advanced_filters',
+    #'advanced_filters',
     #'myapp',
 ]
 
