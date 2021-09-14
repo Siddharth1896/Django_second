@@ -129,7 +129,8 @@
           {% for data in queryset %}
             <li>
               {{ data.License_name }}
-              <span>License Name: {{ data.License_name }}</span>
+              <span>License Name: {{ data.License_name }}</span>              
+              <span>Vendor Name: {{ data.Vendor }}</span>
               <span>Part Number: {{ data.Part_number }}</span>
               <span>Process Number: {{ data.Process_number }}</span>
               <!-- <span>
